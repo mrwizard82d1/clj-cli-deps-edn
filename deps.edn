@@ -3,8 +3,21 @@
 ;; The command, `clj -Sdescribe', describes the current clj environment.`
 
 ;; The commond, `clj -Spath`, describes the classpath using all the
-;; `deps.edn` files. To make the output easier to read, one can pipe
-;; the output into the Unix utility, `tr`. For example,
-;; `clj -Spath | tr ':' '\n' | sort`. As an alternative on my system, one can run
-;; the command,
+;; `deps.edn` files.
+
+;; To make the output easier to read, one can pipe the output into the Unix
+;; utility, `tr`. For example, `clj -Spath | tr ':' '\n' | sort`. As an
+;; alternative on my system, one can run the command,
 ;; `clj -Spath | python3 ~/professional/projects/pyutils/path2list.py -p -`.
+
+;; Suppose one wants to add some directories, for example, the test
+;; directories. One would add the argument `A:test` to the previous `clj`
+;; invocation. Specifically, `clj -A:test -Spath | tr ':' '\n' | sort`.
+;;
+;; Suppose you actually want to run tests; for example, the Congnitect test
+;; runner. The command is `clj -A:test:runner`. Unfortunately, I do not have
+;; an alias named `:runner` so I see a warning:
+;;
+;; ```
+;; WARNING: Specified aliases are undeclared and are not being used: [:runner]
+;; ```
