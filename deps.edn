@@ -1,5 +1,8 @@
 {}
 
+;; In the video, Sean actually walks through the content of his
+;; `.clojure/deps.edn` file (available from his GitHub repository).
+
 ;; The command, `clj -Sdescribe', describes the current clj environment.`
 
 ;; The commond, `clj -Spath`, describes the classpath using all the
@@ -34,3 +37,16 @@
 ;; Again, in the video, we can see the affect of these resources by executing
 ;; `clj -A:test -R:runner -Spath | tr ':' '\n' | sort`. However, using `1.12.3`
 ;; again produces the message that "-R is no longer supported".
+
+;; Sean describes an interesting "hack." The Clojure interpreter treats a
+;; comma, `\,`, as **whitespace**. By replacing white spaces in values to be
+;; passed to the interpreter with commas, the shell treats this text as a
+;; single chunk of text instead of multple white-space separated (shell)
+;; tokens. A convenient work around.
+
+;; The video highlights that, since Clojure 1.8, one can start a
+;; **Socket REPL** on a specified port (instead of using nREPL).
+
+;; Perhaps the key take-away: although `clj` may not come with many options
+;; "out of the box," one can use the `:aliases` section to build up aliases
+;; that I have and do find useful in my work.
