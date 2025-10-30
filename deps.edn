@@ -21,3 +21,16 @@
 ;; ```
 ;; WARNING: Specified aliases are undeclared and are not being used: [:runner]
 ;; ```
+
+;; In the video, executing the command `clj -A:test -R:runner` (specifying
+;; **only resources** in the `:runner` alias) simply runs the Clojure
+;; interpreter. In this case, we did not ask `clj` to actually run anything.
+;; However, in the current version of the interpreter `1.12.3`, executing
+;; this command prints the message:
+;; ```
+;; -R is no longer supported, use -A with repl, -M for main, -X for exec, -T for tool
+;; ```
+
+;; Again, in the video, we can see the affect of these resources by executing
+;; `clj -A:test -R:runner -Spath | tr ':' '\n' | sort`. However, using `1.12.3`
+;; again produces the message that "-R is no longer supported".
