@@ -1,3 +1,10 @@
 {}
 
 ;; The command, `clj -Sdescribe', describes the current clj environment.`
+
+;; The commond, `clj -Spath`, describes the classpath using all the
+;; `deps.edn` files. To make the output easier to read, one can pipe
+;; the output into the Unix utility, `tr`. For example,
+;; `clj -Spath | tr ':' '\n' | sort`. As an alternative on my system, one can run
+;; the command,
+;; `clj -Spath | python3 ~/professional/projects/pyutils/path2list.py -p -`.
